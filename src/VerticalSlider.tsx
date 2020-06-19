@@ -178,6 +178,13 @@ export default class VerticalSlider extends React.Component<props, state> {
     }
   }
 
+  componentWillReceiveProps(nextProps) {
+    var newValue = nextProps.value;
+    if (this.props.value !== newValue && typeof(newValue) === "number") {
+      this._changeState(newValue);
+    }
+  };
+
   render() {
     const {
       width = 350,
